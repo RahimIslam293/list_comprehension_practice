@@ -1,3 +1,4 @@
+import random
 list = [1,2,3]
 newlist = [n+1 for n in list]
 newlist_a = [n for n in list if n<2] #conditional list comprehension
@@ -36,3 +37,25 @@ with open("file2.txt", "r") as file2:
 result = [n for n in list_1 if n in list_2]
 
 print(result)
+
+#dictionary comprehension
+names = ["Alex", "Barb", "Jan", "Jeff"]
+scores_dict = {name : random.randint(1,100) for name in names}
+
+passed_students = {name : grade for name,grade in scores_dict.items() if grade > 50 }
+print(scores_dict)
+print(passed_students)
+
+#ex 1 DC
+sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
+sentence_list = sentence.split()
+result = {word:len(word) for word in sentence_list}
+
+
+#ex 2
+weather_c = {"Monday": 12, "Tuesday": 14, "Wednesday": 15, "Thursday": 14, "Friday": 21, "Saturday": 22, "Sunday": 24}
+
+weather_f = {day : (temp* 9/5 + 32) for (day,temp) in weather_c.items()}
+
+print(weather_f)
+
